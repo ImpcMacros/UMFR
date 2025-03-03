@@ -1,0 +1,11 @@
+run()
+setlocal()
+
+REM((Get the directory of the batch file))
+set "SCRIPT_DIR=%~dp0"
+
+REM Start the AutoHotkey script using relative paths
+start "" "%SCRIPT_DIR%Autohotkey\AutoHotkey.exe" "%SCRIPT_DIR%TUMFR.ahk"
+
+endlocal
+return
