@@ -1,0 +1,53 @@
+#SingleInstance Force
+
+CreateGUI()
+
+Return
+
+CreateGUI() {
+    Gui, New
+    Gui, Add, Text,, Select an option:
+    Gui, Add, ListBox, vMyListBox gListBoxSelect w300 h200, Slap Battles|Fisch|WIP|WIP
+    Gui, Add, Button, gSubmit, Submit
+    Gui, Show, w400 h300, List Of Games
+}
+
+ListBoxSelect:
+GuiControlGet, MyListBox
+Return
+
+GuiControlGet, MyListBox
+Gui, Destroy
+Return
+
+GuiClose:
+Gui, Destroy
+
+ExitApp
+Return
+
+#SingleInstance Force
+Submit:
+GuiControlGet, MyListBox
+if (MyListBox = "Slap battles")
+{
+    Gui, New
+    Gui, Add, Text,, Select an option:
+    Gui, Add, ListBox, vMyListBox gListBoxSelect w300 h200, bob|WIP|WIP|WIP
+    Gui, Add, Button, gSubmit, Submit
+    Gui, Show, w400 h300, What Glove do you want to get?
+}
+GuiControlGet, MyListBox
+if (MyListBox = "bob") {
+    Gui, Destroy
+    CreateGUI()
+}
+Return
+if (MyListBox = "bob")
+Gui, Destroy
+
+CreateGUI()
+Return
+
+ExitApp
+Return
